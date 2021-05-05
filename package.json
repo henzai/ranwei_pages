@@ -1,0 +1,26 @@
+{
+  "name": "ranwei_pages",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "start": "nuxt start",
+    "lint": "eslint --ext .ts,.js,.vue ."
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/henzai/ranwei_pages.git",
+  "author": "henzai <ry0chord@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@nuxt/types": "^2.15.4",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/eslint-config-typescript": "^6.0.0"
+  },
+  "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "firebase": "^8.4.3",
+    "nuxt": "^2.15.4"
+  }
+}
