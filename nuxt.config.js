@@ -4,6 +4,7 @@ const env = process.env;
 export default {
   target: "static",
   buildModules: ["@nuxtjs/dotenv", "@nuxt/typescript-build"],
+  modules: ["nuxt-lazy-load", "@nuxtjs/tailwindcss"],
   plugins: ["~/plugins/firebase.client.ts"],
   env: {
     APIKEY: env.APIKEY,
