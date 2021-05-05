@@ -46,7 +46,7 @@ export default Vue.extend({
       items: [] as Item[],
     };
   },
-  async fetch() {
+  created: async function() {
     try {
       const qs = await firestoreDb
         .collection(COLLECTION_ITEMS)
