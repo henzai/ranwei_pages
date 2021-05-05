@@ -1,11 +1,21 @@
 <template>
-  <div>
-    <h1>👻4️⃣8️⃣📷</h1>
-    <div v-for="item in items" :key="item.ID">
-      <a :href="item.URL">
-        <img class="item" :src="item.URL" />
+  <div class="py-9 px-4 lg:px-11">
+    <h1 class="content-center mb-4 text-center text-4xl">👻4️⃣8️⃣📷</h1>
+    <div
+      class="justify-center grid grid-cols-1 gap-1 sm:gap-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
+    >
+      <a
+        class="col mx-auto bg-gray-100 rounded-3xl"
+        v-for="item in items"
+        :key="item.ID"
+        :href="item.URL"
+      >
+        <img
+          class="rounded-3xl item object-cover w-screen h-full"
+          :src="item.URL"
+          :title="item.CreatedAt.toLocaleString()"
+        />
       </a>
-      {{ item.CreatedAt.toLocaleString() }}
     </div>
   </div>
 </template>
@@ -33,13 +43,15 @@ export default Vue.extend({
   name: "index",
   data() {
     return {
-      mountains: [],
       items: [] as Item[],
     };
   },
-  mounted: async function() {
+  async fetch() {
     try {
-      const qs = await firestoreDb.collection(COLLECTION_ITEMS).get();
+      const qs = await firestoreDb
+        .collection(COLLECTION_ITEMS)
+        .orderBy("CreatedAt", "desc")
+        .get();
       qs.forEach((doc) => {
         const i = doc.data() as Item;
         i.ID = doc.id;
@@ -49,18 +61,18 @@ export default Vue.extend({
     } catch (e) {
       console.log(e);
     }
-
-    this.mountains = await fetch(
-      "https://api.nuxtjs.dev/mountains"
-    ).then((res) => res.json());
   },
 });
 </script>
 
 <style>
+.col {
+  /* min-width: 300px; */
+  max-width: 300px;
+  height: 300px;
+}
+
 .item {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+  /* height: 300px; */
 }
 </style>
