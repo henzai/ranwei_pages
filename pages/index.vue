@@ -1,6 +1,11 @@
 <template>
   <div class="py-9 px-4 lg:px-11">
     <h1 class="content-center mb-4 text-center text-4xl">👻4️⃣8️⃣📷</h1>
+    <div class="mb-2 flex justify-center">
+      <NuxtLink to="/channel/823149495029334027">#live</NuxtLink>
+      <NuxtLink to="/channel/835717071332966432">#pocket48</NuxtLink>
+      <NuxtLink to="/channel/839784696267145238">#chuang</NuxtLink>
+    </div>
     <div
       class="justify-center grid grid-cols-1 gap-1 sm:gap-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
     >
