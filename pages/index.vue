@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import firestoreDb from "../plugins/firebase.client";
+import firestoreDb from "~/plugins/firebase.client";
 
 import Vue from "vue";
 
