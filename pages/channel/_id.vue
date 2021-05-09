@@ -40,17 +40,24 @@ interface Item {
 }
 
 export default Vue.extend({
-  name: "index",
+  name: "channel",
   components: { Top },
   data() {
     return {
+      channelID: "",
       items: [] as Item[],
     };
   },
+  async asyncData({ params }) {
+    const channelID = params.id;
+    return { channelID };
+  },
   created: async function() {
+    console.log("channel id is " + this.channelID);
     try {
       const qs = await firestoreDb
         .collection(COLLECTION_ITEMS)
+        .where("ChannelID", "==", this.channelID)
         .orderBy("CreatedAt", "desc")
         .get();
       qs.forEach((doc) => {
@@ -66,18 +73,10 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="postcss">
+<style>
 .col {
   /* min-width: 300px; */
   max-width: 300px;
   height: 300px;
-}
-
-.btn {
-  @apply py-2 px-4 font-semibold rounded-lg shadow-md;
-}
-
-.btn-blue {
-  @apply text-white bg-blue-500 hover:bg-blue-600;
 }
 </style>
