@@ -1,8 +1,6 @@
 <template>
-  <div class="py-9 px-4 lg:px-11">
-    <NuxtLink to="/">
-      <h1 class="content-center mb-4 text-center text-4xl">👻4️⃣8️⃣📷</h1>
-    </NuxtLink>
+  <div class="py-4 px-4 lg:px-11">
+    <top />
     <div
       class="justify-center grid grid-cols-1 gap-1 sm:gap-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5"
     >
@@ -24,7 +22,7 @@
 
 <script lang="ts">
 import firestoreDb from "~/plugins/firebase.client";
-
+import Top from "~/components/top.vue";
 import Vue from "vue";
 
 const COLLECTION_ITEMS = "items";
@@ -42,7 +40,8 @@ interface Item {
 }
 
 export default Vue.extend({
-  name: "index",
+  name: "channel",
+  components: { Top },
   data() {
     return {
       channelID: "",
