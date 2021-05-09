@@ -71,8 +71,4 @@ export default Vue.extend({
   max-width: 300px;
   height: 300px;
 }
-
-.item {
-  /* height: 300px; */
-}
 </style>
